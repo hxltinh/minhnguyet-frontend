@@ -1,24 +1,15 @@
 import Link from "next/link";
-import { createApolloClient } from "@/apollo-client/apollo-client";
-import { gql } from "@apollo/client";
 
-const query = gql`
-    query {
-        posts {
-            title
-            content
-        }
-    }
-`;
+// const query = gql`
+//     query {
+//         posts {
+//             title
+//             content
+//         }
+//     }
+// `;
 
 export default async function Posts() {
-    const apolloClient = createApolloClient();
-
-    const { data } = await apolloClient.query<PostResponse>({
-        query,
-    });
-
-    console.log("data", data);
 
     return (
         <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
@@ -34,18 +25,16 @@ export default async function Posts() {
                     className="flex items-center gap-2 hover:underline hover:underline-offset-4"
                     href="/"
                 >
-                    {data.posts.map((item) => (
-                        <span>{item.title}</span>
-                    ))}
+                    some link
                 </Link>
             </footer>
         </div>
     );
 }
 
-type PostResponse = {
-    posts: {
-        title: string;
-        content: string;
-    }[];
-};
+// type PostResponse = {
+//     posts: {
+//         title: string;
+//         content: string;
+//     }[];
+// };
