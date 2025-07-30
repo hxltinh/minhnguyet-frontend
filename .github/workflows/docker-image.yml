@@ -24,11 +24,11 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Tags docker image
+      - name: minhnguyet_frontend
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/200lab-nextjs # Change this to your docker image name
+          images: ${{ secrets.DOCKER_USERNAME }}/minhnguyet_frontend # Change this to your docker image name
 
       - name: Build and push to docker hub
         uses: docker/build-push-action@v6
