@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 import { Brands } from './type';
 import { BrandList } from './brand-list';
 import { Suspense } from 'react';
+import { unstable_noStore } from 'next/cache';
 
 const query = gql`
     query {
@@ -14,6 +15,8 @@ const query = gql`
 `;
 
 const BrandsPage = () => {
+    unstable_noStore();
+    
      const apolloClient = createApolloClient();
 
     const responsePromise = apolloClient.query<BrandResponse>({
