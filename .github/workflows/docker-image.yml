@@ -44,6 +44,6 @@ jobs:
           username: ${{ secrets.AWS_USERNAME }} # Username để login vào server
           key: ${{ secrets.AWS_SSH_KEY }} # Private key để login vào server
           script: |
-            docker pull tinhha/minhnguyet_frontend:latest
+            docker pull ${{ secrets.DOCKER_USERNAME }}/minhnguyet_frontend:latest
             docker rm -f minhnguyet_frontend &>/dev/null
-            docker run -it -d --name minhnguyet_frontend -p 3000:3000 tinhha/minhnguyet_frontend:latest
+            docker run -it -d --name minhnguyet_frontend -p 3000:3000 ${{ secrets.DOCKER_USERNAME }}/minhnguyet_frontend:latest
