@@ -40,9 +40,9 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST }} # Địa chỉ của server
-          username: ${{ secrets.USERNAME }} # Username để login vào server
-          key: ${{ secrets.SSH_KEY }} # Private key để login vào server
+          host: ${{ secrets.AWS_HOST }} # Địa chỉ của server
+          username: ${{ secrets.AWS_USERNAME }} # Username để login vào server
+          key: ${{ secrets.AWS_SSH_KEY }} # Private key để login vào server
           script: |
             docker pull ${{ steps.meta.outputs.tags }}
             docker rm -f minhnguyet_frontend &>/dev/null
